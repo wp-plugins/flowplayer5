@@ -1,0 +1,28 @@
+<?php
+/*
+Plugin Name: Flowplayer 5 for Wordpress
+Description: A Flowplayer plugin for showing videos in WordPress. Integrates Flowplayer 5. Supports all three default Flowplayer skins, subtitles, tracking with Google Analytics, splash images. You can use your own watermark logo if you own a Commercial Flowplayer license. Without a license this plugin uses the Free version that includes a Flowplayer watermark. Visit the <a href="http://localhost:8888/wp-admin/options-general.php?page=fp5_options">configuration page</a> and set your Google Analytics ID and Flowplayer license key.
+Version: 0.1
+Author: Flowplayer ltd. Anssi Piirainen
+Author URI: http://flowplayer.org/
+Plugin URI: http://flowplayer.org/wordpress
+*/
+
+define('FP5_PLUGIN_VERSION', '1.0');
+define('FP5_FLOWPLAYER_VERSION', '5.2.1');
+define('FP5_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('FP5_PLUGIN_URL', plugin_dir_url(__FILE__));
+
+function fp5_load(){
+
+    if(is_admin()) {
+        require_once(FP5_PLUGIN_DIR.'includes/admin.php');
+    }
+
+    require_once(FP5_PLUGIN_DIR.'includes/core.php');
+}
+
+fp5_load();
+register_activation_hook( __FILE__, 'fp5_initGlobalOptions');
+
+?>
