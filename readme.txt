@@ -49,3 +49,8 @@ No FAQs at this time.
 
 = 1.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.0 =
+This is the first stable release.
