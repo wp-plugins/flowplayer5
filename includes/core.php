@@ -3,7 +3,7 @@ add_shortcode("flowplayer", "fp5_shortcode");
 
 function fp5_shortcode($atts) {
     extract(shortcode_atts(array('mp4' => '', 'webm' => '', 'ogg' => '', 'skin' => 'minimalist', 'splash' => '',
-        'autoplay' => 'false', 'loop' => 'false', 'subtitles' => '', 'width' => '', 'height' => ''), $atts));
+        'autoplay' => 'false', 'loop' => 'false', 'subtitles' => '', 'width' => '', 'height' => '', 'fixed' => 'false'), $atts));
 
     $options = get_option('fp5_options');
     $key = $options['key'];
@@ -31,9 +31,14 @@ function fp5_shortcode($atts) {
 
     $out .= '
         </script>
-        <div ' .
-        ($width != '' && $height != '' ? 'style="width:'.$width.'px;height:'.$height.'px;" ' : '') .
-        ($width != '' && $height == '' ? 'style="width:'.$width.'px" ' : '') .
+        <div ';
+    if ($fixed == 'true' && $width != '' && $height != '') {
+        $out .= 'style="width:'.$width.'px;height:'.$height.'px;" ';
+    }
+    if ($fixed == 'false' && $width != '') {
+        $out .= 'style="max-width:'.$width.'px" ';
+    }
+    $out .=
         'class="flowplayer' . ($splash != "" ? " is-splash" : "") . '"' .
         ($key != '' ? ' data-key="'.$key.'"' : '') .
         ($key != '' && $logo != '' ? ' data-logo="'.$logo.'"' : '') .

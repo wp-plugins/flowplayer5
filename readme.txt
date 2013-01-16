@@ -17,7 +17,7 @@ The main features of this plugin are:
 * Post editor extension to easily post a video together with your WordPress post or page
 * Skin selection with three default Flowplayer skins: Minimalist, Functional and Playful
 * Show your video in any desired player size
-* Playback options: autoPlay, loop
+* Playback options: autoPlay, loop                                                      f
 * Include a [splash image](http://flowplayer.org/docs/index.html#splash) for your video
 * Subtitles support
 * Google Analytics support for tracking video audience and traffic
@@ -38,7 +38,10 @@ global options. You can purchase a commercial license in [flowplayer.org](http:/
 
 == Frequently Asked Questions ==
 
-No FAQs at this time.
+= Why is the "Send to Editor" button inactive? =
+
+The button becomes active once the video preview is shown. For the preview to work you need to provide a video file that
+is supported by your web browser. See here for some info on video formats on different browsers: http://flowplayer.org/docs/#video-formats
 
 == Screenshots ==
 
@@ -47,10 +50,19 @@ No FAQs at this time.
 
 == Changelog ==
 
-= 1.0 =
+= 0.2 =
+* fixed to work when this plugin is symlinked in the wp-content/plugins directory
+* fixed link to plugins configuration page
+* fixed player scaling, does not use a fixed player size any more
+* added an option to make the player size fixed
+
+= 0.1 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 0.2 =
+Bugs fixed. Player size is no longer fixed: Works better on different screen sizes.
+
+= 0.1 =
 This is the first stable release.

@@ -39,7 +39,6 @@ Flowplayer5Admin.prototype = {
         var name = $this.getName(selectedSkinElem.attr("class"));
         $this['options'][name] = selectedSkinElem.val();
 
-        delete $this['options'].ratio;
         send_to_editor(this.generateShortCode());
         return false;
     },
@@ -129,17 +128,6 @@ jQuery(document).ready(function () {
     });
 
     jQuery("#fp5_ogg, #fp5_webm, #fp5_mp4").change(function () { fp5Admin.showPreview() });
-
-    var ratioCheckbox = jQuery("#fp5_ratio");
-    ratioCheckbox.change(function () {
-        if (ratioCheckbox.attr("checked")) {
-            jQuery('#fp5_height').attr("readonly", "true");
-            ratioCheckbox.val("true");
-        } else {
-            jQuery('#fp5_height').removeAttr("readonly");
-            ratioCheckbox.val("false");
-        }
-    });
 
     jQuery("#fp5_functional, #fp5_playful").css("display", "none");
     jQuery("#fp5_selectSkin").change(function () {

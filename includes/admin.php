@@ -44,7 +44,10 @@ function fp5_postOptionsForm() {
         </div>
 
         <div class="optgroup separated">
-            <label class="head" for="fp5_videos"><?php _e('URLs for videos, at least one is needed')?></label>
+            <label class="head" for="fp5_videos">
+                <?php _e('URLs for videos, at least one is needed. You need a video format supported by your web browser, otherwise the preview below does not work.')?>
+                <a href="http://flowplayer.org/docs/#video-formats" target="_blank"><?php _e('About video formats')?></a>.
+            </label>
             <div id="fp5_videos" class="option wide">
                 <label for="fp5_webm"><?php _e('webm')?></label>
                 <input class="mediaUrl" type="text" name="fp5[webm]" id="fp5_webm" />
@@ -65,20 +68,20 @@ function fp5_postOptionsForm() {
                 <div id="preview" class="preview">Preview</div>
             </div>
             <div class="details separated">
-                <label for="fp5_width"><?php _e('Dimensions are determined from the provided video files. You can change
-                the desired player size below. Preserving video\'s original aspect ratio is normally recommended.')?></label>
+                <label for="fp5_width"><?php _e('Maximum dimensions for the player are determined from the provided video files. You can change
+                this size below. Fixing the player size disables scaling for different screen sizes.')?></label>
                 <div class="wide"></div>
                 <div class="option">
-                    <label for="fp5_width"><?php _e('Width')?></label>
+                    <label for="fp5_width"><?php _e('Max width')?></label>
                     <input class="small" type="text" id="fp5_width" name="fp5[width]" />
                 </div>
                 <div class="option">
-                    <label class="checkbox" for="fp5_height"><?php _e('Preserve aspect ratio')?></label>
-                    <input class="checkbox" type="checkbox" id="fp5_ratio" name="fp5[ratio]" value="true" checked="true" />
+                    <label for="fp5_height"><?php _e('Max height')?></label>
+                    <input class="small" type="text" id="fp5_height" name="fp5[height]" />
                 </div>
                 <div class="option">
-                    <label for="fp5_height"><?php _e('Height')?></label>
-                    <input readonly="true" class="small" type="text" id="fp5_height" name="fp5[height]" />
+                    <label class="checkbox" for="fp5_fixed"><?php _e('Use fixed player size')?></label>
+                    <input class="checkbox" type="checkbox" id="fp5_fixed" name="fp5[fixed]" value="true" />
                 </div>
             </div>
         </div>
