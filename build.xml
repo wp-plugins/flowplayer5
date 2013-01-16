@@ -1,6 +1,6 @@
 <project name="WordPress Flowplayer" default="zip" basedir=".">
 
-    <property name="zip-name" value="wordpress-flowplayer-0.1.1.zip"/>
+    <property name="zip-name" value="wp-flowplayer5-0.3.zip"/>
 
     <target name="prepare">
         <mkdir dir="dist" />

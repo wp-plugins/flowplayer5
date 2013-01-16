@@ -9,6 +9,7 @@ function fp5_shortcode($atts) {
     $key = $options['key'];
     $logo = $options['logo'];
     $analytics = $options['ga_accountId'];
+    $logoInOrigin = $options['logoInOrigin'];
 
     fp5_printScripts($key);
 
@@ -22,6 +23,10 @@ function fp5_shortcode($atts) {
                 jQuery(".flowplayer").css("background", "url('.$splash.') center no-repeat");
             });
         ';
+    }
+
+    if ($key != '' && $logoInOrigin) {
+        $out .= 'jQuery("head").append(jQuery(\'<style>.flowplayer .fp-logo { display: block; opacity: 1; }</style>\'));';
     }
 
     $ratio = 0;

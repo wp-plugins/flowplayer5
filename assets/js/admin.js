@@ -8,7 +8,8 @@
 var Flowplayer5Admin = function () {};
 
 Flowplayer5Admin.prototype = {
-    options           : {},
+    options: {},
+    aspectRatio: 0,
 
     generateShortCode: function () {
         var attrs = '';
@@ -39,6 +40,7 @@ Flowplayer5Admin.prototype = {
         var name = $this.getName(selectedSkinElem.attr("class"));
         $this['options'][name] = selectedSkinElem.val();
 
+        delete $this['options'].ratio;
         send_to_editor(this.generateShortCode());
         return false;
     },
@@ -51,6 +53,8 @@ Flowplayer5Admin.prototype = {
     },
 
     showPreview: function () {
+        var $this = this;
+
         function createVideoSource(field, type) {
             var src = jQuery(field).val();
             if (! src) return '';
@@ -69,6 +73,7 @@ Flowplayer5Admin.prototype = {
             jQuery("#fp5_width").val(this.videoWidth);
             jQuery("#fp5_height").val(this.videoHeight);
             jQuery("#fp5_sendToEditor").removeAttr("disabled");
+            $this.aspectRatio = this.videoHeight / this.videoWidth;
         });
 
         preview.appendTo(jQuery("#preview"));
@@ -108,6 +113,10 @@ Flowplayer5Admin.prototype = {
             // reset the send_to_editor back to it's original value so that the Media Library can be used normally
             window.send_to_editor = origSetter;
         };
+    },
+
+    getScaledHeight: function () {
+        return parseInt(this.aspectRatio * jQuery("#fp5_width").val());
     }
 };
 
@@ -135,6 +144,24 @@ jQuery(document).ready(function () {
         jQuery("#fp5_functional, #fp5_playful, #fp5_minimalist").css("display", "none");
         console.log(selected.substr(0, selected.length - 3));
         jQuery("#" + selected.substr(0, selected.length - 3)).css("display", "block");
+    });
+
+    var ratioCheckbox = jQuery("#fp5_ratio");
+    ratioCheckbox.change(function () {
+        if (ratioCheckbox.attr("checked")) {
+            jQuery('#fp5_height').attr("readonly", "true");
+            jQuery("#fp5_height").val(fp5Admin.getScaledHeight());
+            ratioCheckbox.val("true");
+        } else {
+            jQuery('#fp5_height').removeAttr("readonly");
+            ratioCheckbox.val("false");
+        }
+    });
+
+    jQuery("#fp5_width").change(function () {
+        if (jQuery("#fp5_ratio").attr("checked")) {
+            jQuery("#fp5_height").val(fp5Admin.getScaledHeight());
+        }
     });
 
     jQuery("#fp5_sendToEditor").attr("disabled", "disabled");

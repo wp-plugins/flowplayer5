@@ -2,7 +2,7 @@
 
 function fp5_postOptionsForm() {
     ?>
-    <div class="options">
+    <div class="options" xmlns="http://www.w3.org/1999/html">
         <div class="optgroup">
             <label for="fp5_selectSkin">
                 <?php _e('Select skin')?>
@@ -76,8 +76,12 @@ function fp5_postOptionsForm() {
                     <input class="small" type="text" id="fp5_width" name="fp5[width]" />
                 </div>
                 <div class="option">
+                    <label class="checkbox" for="fp5_ratio"><?php _e('Use video\'s aspect ratio')?></label>
+                    <input class="checkbox" type="checkbox" id="fp5_ratio" name="fp5[ratio]" value="true" checked="checked"/>
+                </div>
+                <div class="option">
                     <label for="fp5_height"><?php _e('Max height')?></label>
-                    <input class="small" type="text" id="fp5_height" name="fp5[height]" />
+                    <input class="small" type="text" id="fp5_height" name="fp5[height]" readonly="true"/>
                 </div>
                 <div class="option">
                     <label class="checkbox" for="fp5_fixed"><?php _e('Use fixed player size')?></label>
@@ -133,6 +137,17 @@ function fp5_globalOptionsPage() {
                         <label for="logo"><?php _e('Logo URL')?></label>
                         <input class="mediaUrl" type="text" name="logo" id="logo"  value="<?php echo esc_html($options['logo']); ?>" />
                         <input id="fp5_chooseLogo" type="button" value="<?php _e('Media Library'); ?>" />
+                    </div>
+                    <div class="option wide">
+                        <label class="checkbox" for="logoInOrigin">
+                            <?php _e('Show logo also in the origin site')?>
+                        </label>
+                        <input class="checkbox" type="checkbox" id="logoInOrigin" name="fp5[logoInOrigin]" value="true" checked="true" />
+                        <p class="checkpox">
+                            <?php _e('Uncheck this and the logo is only shown in ')?>
+                            <a href="http://flowplayer.org/docs/#custom-logo" target="_blank"><?php _e('virally embedded players')?></a>.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="optgroup separated">
@@ -154,12 +169,19 @@ function fp5_globalOptionsPage() {
 }
 
 function fp5_initGlobalOptions() {
-    if (get_option( 'fp5_options') == false) {
+    $options = get_option('fp5_options');
+    if ($options == false) {
         $new_options['ga_accountId'] = "";
         $new_options['key'] = "";
         $new_options['logo'] = "";
         $new_options['version'] = FP5_PLUGIN_VERSION;
+        $new_options['logoInOrigin'] = true;
         add_option('fp5_options', $new_options);
+    } else {
+        if (! isset($options['logoInOrigin'])) {
+            $options['logoInOrigin'] = true;
+            update_option('fp5_options', $options);
+        }
     }
 }
 
@@ -175,10 +197,9 @@ function fp5_saveGlobalOptions() {
     // Retrieve original plugin options array
     $options = get_option('fp5_options');
 
-    foreach ( array('ga_accountId', 'logo', 'key') as $option_name ) {
+    foreach ( array('ga_accountId', 'logo', 'key', 'logoInOrigin') as $option_name ) {
         if ( isset( $_POST[$option_name] ) ) {
-            $options[$option_name] =
-                sanitize_text_field( $_POST[$option_name] );
+            $options[$option_name] = sanitize_text_field( $_POST[$option_name] );
         }
     }
     // Store updated options array to database
