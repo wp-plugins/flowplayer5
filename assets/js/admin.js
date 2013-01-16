@@ -46,9 +46,15 @@ Flowplayer5Admin.prototype = {
     },
 
     chooseMediaFor: function (type, target, field) {
-        window.send_to_editor = this.mediaSelectedHandler(type, window.send_to_editor, field);
+        var orig_send_to_editor = window.send_to_editor;
+        window.send_to_editor = this.mediaSelectedHandler(type, field);
 
         tb_show('', 'media-upload.php?type=' + type + '&amp;fp5_target=' + target + '&amp;TB_iframe=true');
+
+        //restore send_to_editor() when tb closed
+        jQuery("#TB_window").bind('tb_unload', function () {
+            window.send_to_editor = orig_send_to_editor;
+        });
         return false;
     },
 
@@ -80,7 +86,7 @@ Flowplayer5Admin.prototype = {
         jQuery("#preview").css("background-color", 'transparent');
     },
 
-    mediaSelectedHandler: function (type, origSetter, field) {
+    mediaSelectedHandler: function (type, field) {
         return function (html) {
             var url = type == 'image' ? jQuery('img', html).attr('src') : jQuery(html).attr('href');
             if (! url) return;
@@ -109,9 +115,6 @@ Flowplayer5Admin.prototype = {
             if (type == "video") {
                 fp5Admin.showPreview();
             }
-
-            // reset the send_to_editor back to it's original value so that the Media Library can be used normally
-            window.send_to_editor = origSetter;
         };
     },
 

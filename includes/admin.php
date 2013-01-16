@@ -142,7 +142,7 @@ function fp5_globalOptionsPage() {
                         <label class="checkbox" for="logoInOrigin">
                             <?php _e('Show logo also in the origin site')?>
                         </label>
-                        <input class="checkbox" type="checkbox" id="logoInOrigin" name="fp5[logoInOrigin]" value="true" checked="true" />
+                        <input class="checkbox" type="checkbox" id="logoInOrigin" name="logoInOrigin" value="true" <?php echo $options['logoInOrigin'] ? "checked=\"true\"" : ""?> />
                         <p class="checkpox">
                             <?php _e('Uncheck this and the logo is only shown in ')?>
                             <a href="http://flowplayer.org/docs/#custom-logo" target="_blank"><?php _e('virally embedded players')?></a>.
@@ -197,7 +197,13 @@ function fp5_saveGlobalOptions() {
     // Retrieve original plugin options array
     $options = get_option('fp5_options');
 
-    foreach ( array('ga_accountId', 'logo', 'key', 'logoInOrigin') as $option_name ) {
+    if(isset($_POST['logoInOrigin']) && $_POST['logoInOrigin'] == "true") {
+        $options['logoInOrigin'] = true;
+    } else {
+        $options['logoInOrigin'] = false;
+    }
+
+    foreach ( array('ga_accountId', 'logo', 'key') as $option_name ) {
         if ( isset( $_POST[$option_name] ) ) {
             $options[$option_name] = sanitize_text_field( $_POST[$option_name] );
         }

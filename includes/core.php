@@ -11,11 +11,13 @@ function fp5_shortcode($atts) {
     $analytics = $options['ga_accountId'];
     $logoInOrigin = $options['logoInOrigin'];
 
-    fp5_printScripts($key);
+    fp5_printScripts($key, $skin);
 
-    $out =
-        '<script>
-            jQuery("head").append( jQuery(\'<link rel="stylesheet" type="text/css" />\').attr("href", "http://releases.flowplayer.org/'.FP5_FLOWPLAYER_VERSION.'/skin/' . $skin . '.css") );';
+    $out = '<script>';
+
+//    $out =
+//        '<script>
+//            jQuery("head").append( jQuery(\'<link id="'. $skin .'Link" rel="stylesheet" type="text/css" />\').attr("href", "http://releases.flowplayer.org/'.FP5_FLOWPLAYER_VERSION.'/skin/' . $skin . '.css") );';
 
     if ($splash != '') {
         $out .= '
@@ -44,7 +46,7 @@ function fp5_shortcode($atts) {
         $out .= 'style="max-width:'.$width.'px" ';
     }
     $out .=
-        'class="flowplayer' . ($splash != "" ? " is-splash" : "") . '"' .
+        'class="flowplayer ' . $skin . ($splash != "" ? " is-splash" : "") . '"' .
         ($key != '' ? ' data-key="'.$key.'"' : '') .
         ($key != '' && $logo != '' ? ' data-logo="'.$logo.'"' : '') .
         ($analytics != '' ? ' data-analytics="'.$analytics.'"' : '') .
@@ -72,7 +74,9 @@ function fp5_getVideoLink($type) {
     return '<source type="video/mp4" src="' . $type . '" />';
 }
 
-function fp5_printScripts($key) {
+function fp5_printScripts($key, $skin) {
+    wp_enqueue_style("fp_skins", "http://releases.flowplayer.org/".FP5_FLOWPLAYER_VERSION."/skin/all-skins.css");
+
     wp_register_script('fp5_embedder', "http://releases.flowplayer.org/".FP5_FLOWPLAYER_VERSION."/".($key != '' ? "commercial/" : "")."flowplayer.min.js", array('jquery'), null, true);
     wp_print_scripts('fp5_embedder');
 }

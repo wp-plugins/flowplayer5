@@ -50,6 +50,11 @@ is supported by your web browser. See here for some info on video formats on dif
 
 == Changelog ==
 
+= 0.4 =
+* fixed the new "show logo on origin site" checkbox that was introduced in version 0.3
+* now possible to add several players with different skins in one post/page
+* fixed: the "Send to Editor" button became non-functional if the media library window was closed without choosing media
+
 = 0.3 =
 * now in the posting UI the height of the player is calculated based on video's aspect ratio
 * added option to show the logo also in the origin site, and not just only in virally embedded players
@@ -64,6 +69,9 @@ is supported by your web browser. See here for some info on video formats on dif
 * Initial release
 
 == Upgrade Notice ==
+
+= 0.4 =
+* fixes a critical issue with the media library
 
 = 0.2 =
 Bugs fixed. Player size is no longer fixed: Works better on different screen sizes.
