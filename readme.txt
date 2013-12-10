@@ -3,7 +3,7 @@ Contributors: flowplayerorg, grapplerulrich, anssi
 Donate link: http://flowplayer.org/download
 Tags: flowplayer, flowplayer5, responsive, html5, video, player
 Requires at least: 3.5
-Tested up to: 3.7.1
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,7 @@ __Stay tuned for a BIG announcement at the end of this year!__
 
 * One central place to manage all of your videos
 * Video can be added using shortcodes e.g. [flowplayer5 id="123"]
+* Easily display videos in a sidebar with the Video Widget
 * Skin selection with three default Flowplayer skins: Minimalist, Functional and Playful
 * Show your video in any desired player size
 * [Subtitles support](http://flowplayer.org/docs/subtitles.html)
@@ -85,6 +86,7 @@ You can configure Google Analytics, a Commercial Flowplayer license key and a cu
 
 = Where can I upload the videos? =
 There are three ways you add add a video
+
 1. You can use the WordPress media manager and upload the videos there.
 2. You can use [Flowplayer Designer](http://flowplayer.org/designer/) to upload a video and let Flowplayer.org host you video.
 3. You can store your videos on Amazon S3 or any other cloud host and add the links manually.
@@ -170,12 +172,18 @@ add_filter( 'fp5_post_type_args', 'fp5_post_type_arg_video_post' );`
 
 1. Posting a video
 2. Flowplayer Designer
-3. Flowplayer Widget
+3. Video Widget
 4. Plugin Settings
 
 == Changelog ==
 
 We have a lot of plans for this plugin. You can see some of the up and coming features in the [roadmap](https://github.com/flowplayer/wordpress-flowplayer/issues?labels=enhancement&page=1&state=open)
+
+= 1.4.0 =
+* code improvements
+* added a video widget
+* added support for WordPress 3.8
+* added responsive design to the admin area
 
 = 1.3.0 =
 * code improvements
@@ -226,6 +234,9 @@ We have a lot of plans for this plugin. You can see some of the up and coming fe
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+* new video widget
 
 = 1.3.0 =
 * code improvements
