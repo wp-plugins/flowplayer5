@@ -3,7 +3,7 @@ Contributors: flowplayerorg, grapplerulrich, anssi
 Donate link: http://flowplayer.org/pricing/
 Tags: flowplayer, flowplayer5, flowplayer HTML5, responsive, html5, video, player
 Requires at least: 3.5
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -141,19 +141,19 @@ Why would you want to do that? :-) If you do need to uninstall the plugin all of
 
 = Filters =
 
-* [fp5_filter_set_messages()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/admin/class-flowplayer5-admin.php#L289)
+* [fp5_filter_set_messages()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/admin/class-flowplayer5-admin.php#L283)
 * [fp5_post_type_labels()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/includes/class-flowplayer5.php#L179)
 * [fp5_post_type_supports()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/includes/class-flowplayer5.php#L195)
 * [fp5_post_type_rewrite()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/includes/class-flowplayer5.php#L199)
 * [fp5_post_type_args()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/includes/class-flowplayer5.php#L207)
-* [fp5_filter_flowplayer_data()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L207)
-* [fp5_filter_video_src()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L231)
-* [fp5_filter_has_shortcode()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-frontend.php#L110)
+* [fp5_filter_flowplayer_data()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L198)
+* [fp5_filter_video_src()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L205)
+* [fp5_filter_has_shortcode()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-frontend.php#L105)
 
 = Actions =
 
-* [fp5_video_top()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L227)
-* [fp5_video_bottom()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L236)
+* [fp5_video_top()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L200)
+* [fp5_video_bottom()](https://github.com/flowplayer/wordpress-flowplayer/blob/master/frontend/class-flowplayer5-shortcode.php#L210)
 
 = Examples =
 
@@ -199,6 +199,10 @@ add_filter( 'fp5_post_type_args', 'fp5_post_type_arg_video_post' );`
 == Changelog ==
 
 We have a lot of plans for this plugin. You can see some of the up and coming features in the [roadmap](https://github.com/flowplayer/wordpress-flowplayer/issues?labels=enhancement&page=1&state=open)
+
+= 1.8.1 - 17 April 2014 =
+* replace php short tags with full tags
+* fix icon for WordPress 3.9
 
 = 1.8.0 - 9 March 2014 =
 * introducing Flowplayer Drive to replace Flowplayer Designer
