@@ -18,13 +18,9 @@ Flowplayer HTML5 for WordPress provides a video management system for self hoste
 
 For a very short time only, you have the opportunity to get Flowplayer licenses with all the benefits, for 30% OFF!
 
-That means a hefty savings of $35 dollars all the way up to $434, depending on the license you choose. 
+That means a hefty savings of $35 dollars all the way up to $434, depending on the license you choose. And on top of this, grab a free-to-start Drive plan and move to an effortless video workflow!
 
-And on top of this, grab a free-to-start Drive plan and move to an effortless video workflow!
-
-https://flowplayer.org/4day-sale
-Use this code on checkout: 4DAYSALE
-
+Use this code on checkout: [4DAYSALE](https://flowplayer.org/4day-sale)
 (This offer expires on Friday June 13, at midnight sharp)
 
 = Main features =
