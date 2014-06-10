@@ -3,7 +3,7 @@ Contributors: flowplayerorg, grapplerulrich, anssi
 Donate link: http://flowplayer.org/pricing/
 Tags: flowplayer, flowplayer5, flowplayer HTML5, responsive, html5, video, player
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,6 +13,19 @@ A beautiful, responsive, HTML5 video player plugin from the makers of Flowplayer
 == Description ==
 
 Flowplayer HTML5 for WordPress provides a video management system for self hosted videos where you can manage all of your video from a central place. You can easily customize the videos from the numerous settings. The videos are displayed with the world-famous Flowplayer video player using a simple shortcodes. This is the official WordPress plugin from the makers of Flowplayer.
+
+= 4day Sale =
+
+For a very short time only, you have the opportunity to get Flowplayer licenses with all the benefits, for 30% OFF!
+
+That means a hefty savings of $35 dollars all the way up to $434, depending on the license you choose. 
+
+And on top of this, grab a free-to-start Drive plan and move to an effortless video workflow!
+
+https://flowplayer.org/4day-sale
+Use this code on checkout: 4DAYSALE
+
+(This offer expires on Friday June 13, at midnight sharp)
 
 = Main features =
 
