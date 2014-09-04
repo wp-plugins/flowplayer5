@@ -75,6 +75,14 @@ select#fp5-select-skin {
 	max-width: 100%
 }
 
+#newplaylist_parent {
+	display: none;
+}
+
+/*.post-type-flowplayer5 #normal-sortables {
+	padding-top: 20px;
+}*/
+
 /* Tabs */
 .nav-tab-wrapper {
 	border-bottom: #ccc solid 1px;;
@@ -164,13 +172,13 @@ select#fp5-select-skin {
 }
 
 /* Flowplayer Drive */
-.video {
+#flowplayer-drive .video {
 	float: left;
 	margin: 10px;
 	width: 240px;
 }
 
-.video .thumb {
+#flowplayer-drive .video .thumb {
 	width: 240px;
 	height: 130px;
 	background-repeat: no-repeat;
@@ -179,7 +187,7 @@ select#fp5-select-skin {
 	background-size: cover;
 }
 
-.video .thumb .duration {
+#flowplayer-drive .video .thumb .duration {
 	background-color: rgba(0,32,38,0.8);
 	padding: 2px;
 	display: block;
@@ -189,7 +197,7 @@ select#fp5-select-skin {
 	text-align: right;
 }
 
-.video-title {
+#flowplayer-drive .video-title {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -224,6 +232,28 @@ select#fp5-select-skin {
 
 #fp5_about .hndle {
 	cursor: default;
+}
+
+/*
+ * Sortable videos
+*/
+.taxonomy-playlist .fp5-product-order li {
+	cursor: move;
+	float: left;
+	margin: 0 10px 10px 0;
+	padding: 5px;
+	font-size: 11px;
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 95%;
+}
+
+.taxonomy-playlist .fp5-product-order-title {
+	margin: 20px 0 0 230px;
+}
+
+.taxonomy-playlist p.submit {
+	clear: both
 }
 
 /*
