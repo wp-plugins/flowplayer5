@@ -14,7 +14,7 @@ A beautiful, responsive, HTML5 video player plugin from the makers of Flowplayer
 
 Flowplayer HTML5 for WordPress provides a video management system for self hosted videos where you can manage all of your video from a central place. You can easily customize the videos from the numerous settings. The videos are displayed with the world-famous Flowplayer video player using a simple shortcodes. This is the official WordPress plugin from the makers of Flowplayer.
 
-[youtube https://www.youtube.com/watch?v=XpYr4qZ-qt8]
+[youtube https://www.youtube.com/watch?v=G43QiDe1gDc]
 
 = Main features =
 
