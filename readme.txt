@@ -217,7 +217,10 @@ add_filter( 'fp5_post_type_args', 'fp5_post_type_arg_video_post' );`
 
 We have a lot of plans for this plugin. You can see some of the up and coming features in the [roadmap](https://github.com/flowplayer/wordpress-flowplayer/issues?labels=enhancement&page=1&state=open)
 
-= 1.9.0 - 2 September 2014 =
+= 1.9.1 - 5 September 2014 =
+* fix bug: shortcode loading at the top content - the shortcode was printed and not returned
+
+= 1.9.0 - 4 September 2014 =
 * add [Playlist](https://flowplayer.org/docs/playlist.html?utm_source=wordpress.org&utm_medium=readme&utm_campaign=Flowplayer%20Plugin) support
 * update to [Flowplayer HTML5 5.5.0](https://flowplayer.org/news/releases/html5/v5.5.0.html)
 * fix CSS issue with Yoast Video SEO
