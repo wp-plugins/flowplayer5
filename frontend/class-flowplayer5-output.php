@@ -174,7 +174,7 @@ class Flowplayer5_Output {
 		);
 
 		$classes = array(
-			'flowplayer flowplayer-video-' . $id,
+			'flowplayer-video flowplayer-video-' . $id,
 			$skin,
 			( ! empty ( $splash ) ? 'is-splash' : '' ),
 			( ! empty ( $logo_origin ) ? 'commercial' : '' ),
@@ -197,7 +197,8 @@ class Flowplayer5_Output {
 		);
 
 		$asf_test = ( ! empty( $asf_test ) ? 'on' : 'off' );
-		$ads_time = ( ! empty( $ads_time ) ? intval( $ads_time ) : '' );
+		$ads_time = ( isset( $ads_time ) ? $ads_time : '' );
+		$ads_time = ( 0 == $ads_time ? 0.01 : $ads_time );
 		$ad_type  = ( ! empty( $ad_type ) ? esc_attr( $ad_type ) : '' );
 
 		$source = array();
