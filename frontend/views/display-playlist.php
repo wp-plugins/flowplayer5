@@ -19,6 +19,9 @@
 					'terms'    => esc_attr( $playlist_id ),
 				),
 			),
+			'cache_results'          => true,
+			'update_post_meta_cache' => true,
+			'update_post_term_cache' => true,
 		);
 
 		// The Query
